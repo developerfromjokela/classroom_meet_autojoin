@@ -1,0 +1,28 @@
+{
+
+  "manifest_version": 2,
+  "name": "Classroom Automatic Joiner",
+  "version": "1.0",
+  "author": "Developer From Jokela",
+
+  "description": "This extension will join you automatically as soon as a comment in classroom appears",
+
+  "icons": {
+    "48": "icons/cls-48.png"
+  },
+  "permissions": [
+    "tabs"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://classroom.google.com/*"],
+      "js": ["js/jquery-3.4.1.min.js","js/comment_listener.js"]
+    },
+    {
+      "matches": ["*://meet.google.com/*"],
+      "js": ["js/jquery-3.4.1.min.js","js/meet_joiner.js"]
+    }
+  ]
+
+}
