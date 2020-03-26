@@ -54,7 +54,6 @@ function check() {
                     for (match in matches) {
                         var link = matches[match];
                         if (/^https:\/\/meet.google.com/.test(link)) {
-                            console.log(link);
                             window.open(link+"?autojoin", '_blank')
                         }
                     }
@@ -62,12 +61,15 @@ function check() {
             }
         }
     }
+    // Making the request to not break the classroom, because setInterval doesn't let any other scripts to run.
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             check();
         }
     };
+    // The url doesn't matter, it just needs to give some response, so CORSS wouln't alert anything and block our request.
     xhr.open('GET', 'https://play.google.com/log?format=json&hasfast=true&authuser=1', true);
     xhr.send(null);
 }

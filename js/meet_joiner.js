@@ -1,4 +1,3 @@
-console.log("MEET");
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -14,6 +13,8 @@ function checkWhen() {
     if (document.querySelector("div[jsname='Qx7uuf']") != null) {
         document.querySelector("div[jsname='Qx7uuf']").click();
     }
+
+    // Making the request to not break the classroom, because setInterval doesn't let any other scripts to run
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
